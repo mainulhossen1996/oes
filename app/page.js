@@ -33,7 +33,7 @@ export default function Home() {
           <div className="wrap grid items-center gap-12 py-20 md:grid-cols-5 md:py-28">
             <div className="hero-in md:col-span-3">
               <p className="mb-4 font-semibold text-blue-200">Government contractor &amp; supplier, Bangladesh</p>
-              <h1 className="text-4xl font-extrabold sm:text-5xl md:text-6xl">We build it, finish it, and supply what it&rsquo;s built from.</h1>
+              <h1 className="text-4xl font-medium sm:text-5xl md:text-6xl">We build it, finish it, and supply what it&rsquo;s built from.</h1>
               <p className="mt-6 max-w-xl text-lg text-blue-100">Civil work, interior development, plumbing and painting, plus every kind of construction supply. We work as main contractor or as subcontractor to your team.</p>
               <div className="mt-9 flex flex-wrap gap-3">
                 <a href="#contact" className="btn btn-white">Request a quote</a>
@@ -45,7 +45,7 @@ export default function Home() {
           <dl className="border-t border-white/20">
             <div className="wrap grid grid-cols-2 gap-4 py-6 text-sm md:grid-cols-4">
               {[["Experience", `${site.experience} on site`], ["Registration", "Govt. contractor & supplier"], ["Engagement", "Contractor or subcontractor"], ["Trades", "4 in-house, plus supplies"]].map(([k, v]) => (
-                <div key={k}><dt className="text-blue-200">{k}</dt><dd className="font-head text-xl font-bold">{v}</dd></div>
+                <div key={k}><dt className="text-blue-200">{k}</dt><dd className="font-head text-xl font-medium">{v}</dd></div>
               ))}
             </div>
           </dl>
@@ -53,13 +53,13 @@ export default function Home() {
 
         {/* Services */}
         <section id="services" className="wrap py-20">
-          <h2 className="max-w-2xl text-3xl font-extrabold md:text-4xl">Four trades under one roof</h2>
+          <h2 className="max-w-2xl text-3xl font-medium md:text-4xl">Four trades under one roof</h2>
           <p className="mt-4 max-w-2xl text-slate-600">One team for structure, finish and fittings means fewer handovers, fewer delays and one party responsible for the result.</p>
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             {services.map(([k, t, d]) => (
               <article key={k} className="group rounded-md border border-slate-200 border-l-[6px] border-l-brand bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
                 <div className="mb-4 grid h-12 w-12 place-items-center rounded-md bg-brand-light text-brand transition group-hover:bg-brand group-hover:text-white">{Icons[k]}</div>
-                <h3 className="text-2xl font-bold">{t}</h3>
+                <h3 className="text-2xl font-medium">{t}</h3>
                 <p className="mt-3 text-slate-600">{d}</p>
               </article>
             ))}
@@ -68,26 +68,43 @@ export default function Home() {
 
         {/* Supplies */}
         <section id="supplies" className="bg-brand-light">
-          <div className="wrap grid gap-12 py-20 md:grid-cols-2">
-            <div>
-              <h2 className="text-3xl font-extrabold md:text-4xl">Supplies for tender, site or shop</h2>
-              <p className="mt-4 text-slate-600">We supply to government offices and to other contractors. Tell us the item list and quantity and we quote against it, with delivery to your site.</p>
+          <div className="wrap grid items-start gap-12 py-20 md:grid-cols-2 md:gap-16">
+            <div className="md:sticky md:top-28">
+              <h2 className="font-head text-3xl font-medium text-slate-900 md:text-4xl">Supplies for tender, site or shop</h2>
+              <p className="mt-4 max-w-md text-slate-600">We supply to government offices and to other contractors. Tell us the item list and quantity and we quote against it, with delivery to your site.</p>
+              <ul className="mt-6 space-y-2 text-sm font-semibold text-slate-700">
+                {["Quoted against your item list", "Delivered to your site"].map((t) => (
+                  <li key={t} className="flex items-center gap-2">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-brand" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" /></svg>
+                    {t}
+                  </li>
+                ))}
+              </ul>
               <a href="#contact" className="btn btn-blue mt-8">Send your item list</a>
             </div>
-            <ul className="grid grid-cols-2 gap-3 font-semibold">
-              {supplies.map((s) => <li key={s} className="flex items-center gap-2 rounded bg-white p-4 shadow-sm"><span className="h-2 w-2 shrink-0 rounded-full bg-accent" />{s}</li>)}
+            <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+              {supplies.map((s) => (
+                <li key={s} className="flex items-center gap-3 rounded-lg border border-slate-200 border-l-4 border-l-brand bg-white px-4 py-4 font-semibold text-slate-800 shadow-sm transition hover:border-brand hover:shadow-md">
+                  <span className="h-2 w-2 shrink-0 rounded-full bg-accent" />
+                  {s}
+                </li>
+              ))}
             </ul>
           </div>
         </section>
 
         {/* Process */}
         <section id="process" className="wrap py-20">
-          <h2 className="text-3xl font-extrabold md:text-4xl">How a job runs with us</h2>
+          <h2 className="font-head text-3xl font-medium text-slate-900 md:text-4xl">How a job runs with us</h2>
+          <p className="mt-4 max-w-2xl text-slate-600">Four clear steps from first call to handover, so you always know what happens next.</p>
           <ol className="mt-12 grid gap-6 md:grid-cols-4">
             {steps.map(([t, d], i) => (
-              <li key={t} className="relative rounded-md bg-white p-6 shadow-sm">
-                <span className="mb-3 grid h-9 w-9 place-items-center rounded-full bg-brand font-head font-bold text-white">{i + 1}</span>
-                <h3 className="text-xl font-bold">{t}</h3>
+              <li
+                key={t}
+                className="relative rounded-lg border border-slate-200 border-t-4 border-t-brand bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md md:after:absolute md:after:left-full md:after:top-12 md:after:h-0.5 md:after:w-6 md:after:bg-brand/30 md:last:after:hidden"
+              >
+                <span className="mb-4 grid h-11 w-11 place-items-center rounded-full bg-brand font-head text-lg font-medium text-white ring-4 ring-brand-light">{i + 1}</span>
+                <h3 className="font-head text-xl font-medium text-slate-900">{t}</h3>
                 <p className="mt-2 text-slate-600">{d}</p>
               </li>
             ))}
@@ -97,7 +114,7 @@ export default function Home() {
         {/* Work */}
         <section className="bg-white py-20">
           <div className="wrap">
-            <h2 className="text-3xl font-extrabold md:text-4xl">What our work looks like</h2>
+            <h2 className="text-3xl font-medium md:text-4xl">What our work looks like</h2>
             <p className="mt-4 max-w-2xl text-slate-600">Illustrations for now. Replace these with photos from your finished sites by putting images in <code>/public</code> and swapping the tiles.</p>
             <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
               {work.map(([k, c]) => (
@@ -112,14 +129,14 @@ export default function Home() {
         {/* About */}
         <section id="about" className="wrap grid items-start gap-12 py-20 md:grid-cols-2">
           <div>
-            <h2 className="text-3xl font-extrabold md:text-4xl">Young company, careful work</h2>
+            <h2 className="text-3xl font-medium md:text-4xl">Young company, careful work</h2>
             <p className="mt-4 text-slate-600">{site.name} has worked for {site.experience} as a government contractor and supplier in Bangladesh. We take on full contracts and also join larger projects as a subcontractor, delivering our trade package to the main contractor&rsquo;s schedule.</p>
             <p className="mt-4 text-slate-600">We keep the team small, the site supervised and the paperwork in order, so tender documents, measurement and billing stay clean.</p>
           </div>
           <div className="grid gap-4">
             {roles.map(([t, d]) => (
               <div key={t} className="rounded-md border border-slate-200 border-l-[6px] border-l-accent bg-white p-6">
-                <h3 className="text-xl font-bold">As {t.toLowerCase()}</h3><p className="mt-2 text-slate-600">{d}</p>
+                <h3 className="text-xl font-medium">As {t.toLowerCase()}</h3><p className="mt-2 text-slate-600">{d}</p>
               </div>
             ))}
           </div>
@@ -129,7 +146,7 @@ export default function Home() {
         <section id="contact" className="blueprint text-white">
           <div className="wrap grid gap-12 py-20 md:grid-cols-2">
             <div>
-              <h2 className="text-3xl font-extrabold md:text-4xl">Tell us about your project</h2>
+              <h2 className="text-3xl font-medium md:text-4xl">Tell us about your project</h2>
               <p className="mt-4 text-blue-100">Send the scope, location and timeline. We reply with a site visit or a quotation.</p>
               <ul className="mt-10 space-y-3 text-blue-50">
                 <li><span className="text-blue-200">Phone:</span> <a href={`tel:${site.phone.replace(/[^+\d]/g, "")}`} className="underline">{site.phone}</a></li>

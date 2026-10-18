@@ -146,20 +146,59 @@ export const Icons = {
 export const Tiles = {
   civil: (
     <svg viewBox="0 0 300 200" className="block w-full" aria-hidden="true">
-      <rect width="300" height="200" fill="#1456d6" /><rect y="160" width="300" height="40" fill="#0a2a6b" />
-      <path d="M60 160V50M120 160V50M180 160V50M60 110h120M60 50h120" stroke="#fff" strokeWidth="4" fill="none" />
+      {/* sky, blueprint grid, ground */}
+      <rect width="300" height="200" fill="#1456d6" />
+      <path d="M0 40h300M0 80h300M0 120h300M60 0v160M120 0v160M180 0v160M240 0v160" stroke="#fff" strokeOpacity=".08" />
+      <rect y="160" width="300" height="40" fill="#0a2a6b" />
+      <rect y="160" width="300" height="4" fill="#f5b301" />
+
+      {/* concrete frame with floor slabs */}
+      <path d="M60 160V50M120 160V50M180 160V50" stroke="#fff" strokeWidth="4" fill="none" />
+      <path d="M54 160h132M54 110h132M54 50h132" stroke="#fff" strokeWidth="6" fill="none" />
+      <path d="M60 110l60 50M120 110l-60 50M120 110l60 50M180 110l-60 50" stroke="#fff" strokeOpacity=".5" strokeWidth="1.5" fill="none" />
+      <rect x="60" y="110" width="120" height="50" fill="#fff" opacity=".08" />
+
+      {/* crane: mast, jib, tie line, counterweight, hook */}
       <path d="M200 160V30h70M200 30l-30 20" stroke="#f5b301" strokeWidth="4" fill="none" />
-      <rect x="255" y="44" width="16" height="10" fill="#f5b301" />
+      <path d="M200 30l14 8 14-8 14 8 14-8 14 8" stroke="#f5b301" strokeWidth="1.5" fill="none" />
+      <rect x="164" y="48" width="14" height="12" fill="#f5b301" />
+      <path d="M262 30v26" stroke="#f5b301" strokeWidth="2" />
+      <rect x="255" y="56" width="14" height="9" fill="#f5b301" />
+      <path d="M262 65l-12 14M262 65l12 14" stroke="#fff" strokeWidth="1.2" />
+      <rect x="244" y="79" width="36" height="4" fill="#fff" />
     </svg>
   ),
   interior: (
     <svg viewBox="0 0 300 200" className="block w-full" aria-hidden="true">
-      <rect width="300" height="200" fill="#dbe7ff" /><rect y="150" width="300" height="50" fill="#9bb6ea" />
-      <rect x="190" y="30" width="80" height="80" fill="#fff" stroke="#1456d6" strokeWidth="4" />
+      {/* wall, floor, baseboard, rug */}
+      <rect width="300" height="200" fill="#dbe7ff" />
+      <rect y="150" width="300" height="50" fill="#9bb6ea" />
+      <rect y="146" width="300" height="4" fill="#fff" opacity=".7" />
+      <ellipse cx="95" cy="170" rx="82" ry="11" fill="#7f9fe0" />
+
+      {/* window with sky, mullions and sill */}
+      <rect x="190" y="30" width="80" height="80" fill="#bcd3ff" stroke="#1456d6" strokeWidth="4" />
       <path d="M230 30v80M190 70h80" stroke="#1456d6" strokeWidth="3" />
-      <rect x="30" y="100" width="130" height="50" rx="10" fill="#1456d6" />
-      <rect x="20" y="115" width="25" height="40" rx="8" fill="#0a2a6b" /><rect x="145" y="115" width="25" height="40" rx="8" fill="#0a2a6b" />
-      <path d="M100 20v40" stroke="#0a2a6b" strokeWidth="3" /><path d="M85 60h30l-6 20H91z" fill="#f5b301" />
+      <rect x="184" y="110" width="92" height="6" rx="2" fill="#fff" stroke="#1456d6" strokeWidth="2" />
+
+      {/* sofa */}
+      <rect x="34" y="88" width="122" height="38" rx="10" fill="#1456d6" />
+      <rect x="30" y="112" width="130" height="30" rx="8" fill="#2f6ae0" />
+      <rect x="22" y="104" width="20" height="40" rx="8" fill="#0a2a6b" />
+      <rect x="148" y="104" width="20" height="40" rx="8" fill="#0a2a6b" />
+      <path d="M95 116v24" stroke="#0a2a6b" strokeOpacity=".3" strokeWidth="2" />
+      <rect x="46" y="98" width="22" height="22" rx="5" fill="#f5b301" />
+      <rect x="38" y="142" width="6" height="8" fill="#0a2a6b" />
+      <rect x="146" y="142" width="6" height="8" fill="#0a2a6b" />
+
+      {/* pendant lamp */}
+      <path d="M100 0v52" stroke="#0a2a6b" strokeWidth="3" />
+      <path d="M84 52h32l-8 20H92z" fill="#f5b301" />
+      <circle cx="100" cy="73" r="4" fill="#fff" />
+
+      {/* plant */}
+      <rect x="224" y="132" width="18" height="18" rx="3" fill="#0a2a6b" />
+      <path d="M233 132c-14-8-14-24-8-30 8 6 10 18 8 30zM233 132c14-8 14-24 8-30-8 6-10 18-8 30z" fill="#3aa76d" />
     </svg>
   ),
   plumbing: (
